@@ -18,7 +18,7 @@ namespace Graph
 
     public class CustomScalarType : ScalarType<string, StringValueNode>
     {
-        public CustomScalarType() : base("customScalar")
+        public CustomScalarType() : base("CustomScalar")
         {
         }
 

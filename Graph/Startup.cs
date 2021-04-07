@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GraphQL.Server;
+using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +45,10 @@ namespace Graph
                 .AddRemoteSchema("graphqlDotnet")
                 .AddLocalSchema("hotChocolate")
                 .AddType<CustomScalarType>();
+
+            services
+                .AddGraphQLServer("graphqlDotnet")
+                .AddType(new AnyType("CustomScalar"));
         }
 
         public void Configure(IApplicationBuilder app)
